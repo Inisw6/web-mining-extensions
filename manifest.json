@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Click Block Tracker",
+  "version": "1.1",
+  "description": "사용자가 클릭한 블록 요소를 추적하고 JSON으로 내보냅니다.",
+  "permissions": [
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Click Tracker"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
